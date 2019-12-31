@@ -24,6 +24,12 @@ QuickViewer is a free software lisenced under GPLv3.
 * To show Raw digital camera images, such as Canon (crw, cr2), Nicon (nef), Sony (arw), Ricoh (dng)
 * Can make/view/search catalog from thousands of your digital books
 * Can search books from auto generated tags
+
+## Package Parameters
+
+- `/InstallDir` - Installation directory
+
+Example: `choco install quickviewer --params "/InstallDir:C:\your\install\path"`
     </description>
     <projectUrl>https://kanryu.github.io/quickviewer/</projectUrl>
     <projectSourceUrl>https://github.com/kanryu/quickviewer</projectSourceUrl>
