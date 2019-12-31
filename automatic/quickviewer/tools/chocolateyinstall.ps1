@@ -1,5 +1,12 @@
 ﻿$ErrorActionPreference = 'Stop';
 
+$pp = Get-PackageParameters
+if ($pp.InstallDir) {
+  $installDir = $pp.InstallDir
+} else {
+  $installDir = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
+}
+
 $packageArgs = @{
   packageName    = 'quickviewer'
   url            = 'https://github.com/kanryu/quickviewer/releases/download/v1.1.8/QuickViewer-portable-1.1.8-x86.zip'
@@ -8,7 +15,7 @@ $packageArgs = @{
   checksum64     = '9120d45470a5b3eadcd8c6dbeed391b642b5815563773a1bae724d44f24bfc3d'
   checksumType   = 'sha256'
   checksumType64 = 'sha256'
-  unzipLocation  = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+  unzipLocation  = $installDir
   softwareName   = 'QuickViewer'
 }
 Install-ChocolateyZipPackage @packageArgs
